@@ -1,0 +1,18 @@
+Station
+    Platform
+        Track
+
+Train
+    Name
+
+Line
+    List of Stops
+        Station
+        Time to travel from route start
+        Time of stop
+    List of Transits
+        Train
+        Hour of start
+    
+    
+        
