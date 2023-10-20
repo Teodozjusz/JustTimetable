@@ -3,13 +3,18 @@ package online.adambem.justtimetable.repository;
 import online.adambem.justtimetable.model.*;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 public class SampleRepository {
 
+    private List<Line> lines;
+
     public SampleRepository() {
+
+        this.lines = new ArrayList<>();
 
         List<Platform> zachodniaPlatforms = Arrays.asList(
                 new Platform(1, 2),
@@ -38,7 +43,7 @@ public class SampleRepository {
                 new Platform(3, 4),
                 new Platform(5, 6));
         Station wschodnia = new Station("Warszawa Wchodnia", wschodniaPlatforms);
-        Stop wschodniaStop = new Stop(zachodnia, 7, 1);
+        Stop wschodniaStop = new Stop(wschodnia, 7, 1);
 
         List<Stop> stops = List.of(zachodniaStop, ochotaStop, srodmiesiceStop, wschodniaStop);
 
@@ -52,7 +57,15 @@ public class SampleRepository {
 
         List<Transit> transits = List.of(transit1, transit2, transit3);
 
-        Line S1 = new Line(stops, transits);
+        this.lines.add(new Line("S1", stops, transits));
 
+    }
+
+    public List<Line> getLines() {
+        return lines;
+    }
+
+    public void setLines(List<Line> lines) {
+        this.lines = lines;
     }
 }
